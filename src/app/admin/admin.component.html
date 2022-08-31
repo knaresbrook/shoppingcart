@@ -1,0 +1,9 @@
+<div class="container">
+  <div style="margin-top: 100px">
+    <p>You are an administrator</p>
+  </div>
+  <h4>List of Users</h4>
+  <ul *ngFor="let user of model">
+    <li>{{ user.id }} {{ user.userName }} {{ user.email }}</li>
+  </ul>
+</div>

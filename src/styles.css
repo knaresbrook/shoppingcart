@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* replace all icons in the grid with icons from Font Awesome */
+.ag-theme-alpine .ag-icon-pin {
+  --ag-icon-font-family: "Font Awesome 5 Free";
+  --ag-icon-font-code-aggregation: "\f247";
+  --ag-icon-font-code-arrows: "\f0b2";
+  --ag-icon-font-code-asc: "\f062";
+  /* ... and so on - you must define a font code for every icon */
+}
+
+.ag-theme-alpine .ag-icon-group {
+  --ag-icon-font-family: "Material Design Icons";
+  --ag-icon-font-code-group: "\F0328";
+}
