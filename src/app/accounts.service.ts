@@ -15,8 +15,10 @@ export class AccountsService {
   roles: any;
   private currentUserSubject: BehaviorSubject<string>;
   private tokenSubject: BehaviorSubject<string>;
+  private roleSubject: BehaviorSubject<string>;
   public currentUser: Observable<string>;
   public currentToken: Observable<string>;
+  public currentRole: Observable<string>;
 
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<string>(
@@ -28,6 +30,11 @@ export class AccountsService {
       JSON.parse(localStorage.getItem('userToken') || '{}').token
     );
     this.currentToken = this.tokenSubject.asObservable();
+
+    this.roleSubject = new BehaviorSubject<string>(
+      JSON.parse(localStorage.getItem('userToken') || '{}').roleName
+    );
+    this.currentRole = this.roleSubject.asObservable();
   }
 
   public get getCurrentUser() {
@@ -39,7 +46,7 @@ export class AccountsService {
   }
 
   get getRoles() {
-    return this.roles;
+    return this.roleSubject.value;
   }
 
   sharedfunction(user: any) {
@@ -51,14 +58,9 @@ export class AccountsService {
       this.tokenSubject.next(
         JSON.parse(localStorage.getItem('userToken') || '{}').token
       );
-      const myTimeout = setTimeout(() => {
-        this.GetRole(this.getCurrentUser).subscribe({
-          next: (role) => {
-            console.log(role);
-          },
-        });
-      }, 5000);
-      clearTimeout(myTimeout);
+      this.roleSubject.next(
+        JSON.parse(localStorage.getItem('userToken') || '{}').roleName
+      );
     }
   }
 
@@ -81,6 +83,7 @@ export class AccountsService {
         localStorage.removeItem('userToken');
         this.currentUserSubject.next('');
         this.tokenSubject.next('');
+        this.roleSubject.next('');
       })
     );
   }
@@ -89,15 +92,13 @@ export class AccountsService {
     return this.http.get(this.baseUrl + 'account/getusers');
   }
 
-  GetRole(email: string) {
-    return this.http.get(this.baseUrl + 'account/getrole?email=' + email).pipe(
-      map((role) => {
-        if (role) {
-          this.roles = role.toString();
-        }
-      })
-    );
-  }
+  // GetRole(e: string) {
+  //   return this.http.get(this.baseUrl + `account/getrole?email=${e}`).pipe(
+  //     map((role) => {
+  //       this.roles = role;
+  //     })
+  //   );
+  // }
 
   register(model: any) {
     return this.http

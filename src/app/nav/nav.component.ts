@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { ShoppingCartService } from './../shoppingcart.service';
 import { AccountsService } from './../accounts.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,8 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  roles: any;
 
-  constructor(public accountService: AccountsService, private router: Router) {}
+  constructor(
+    public accountService: AccountsService,
+    private router: Router,
+    public shoppingcartService: ShoppingCartService
+  ) {}
 
   ngOnInit(): void {}
 

@@ -1,3 +1,5 @@
+import { ShoppingCartService } from './shoppingcart.service';
+import { MessageService } from './message.service';
 import { ProductsService } from './products.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +23,13 @@ import { CategoryComponent } from './category/category.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AuthloginGuard } from './_guards/authlogin.guard';
 import { ToastrModule } from 'ngx-toastr';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { CategoryService } from './category.service';
+import { ButtonCellRenderer } from './_renderer/button-cell-renderer.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { AccountdetailsComponent } from './accountdetails/accountdetails.component';
+import { BillshippingComponent } from './billshipping/billshipping.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +42,12 @@ import { ToastrModule } from 'ngx-toastr';
     ErrorComponent,
     AdminComponent,
     CategoryComponent,
+    ProductdetailsComponent,
+    ButtonCellRenderer,
+    ShoppingComponent,
+    AccountdetailsComponent,
+    BillshippingComponent,
+    PaymentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +63,9 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [
     AccountsService,
     ProductsService,
+    CategoryService,
+    MessageService,
+    ShoppingCartService,
     AuthloginGuard,
     AuthGuard,
     {

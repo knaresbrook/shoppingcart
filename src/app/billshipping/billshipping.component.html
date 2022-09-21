@@ -1,0 +1,66 @@
+<div class="container" style="margin-top: 55px">
+  <h3 class="btn-warning">Billing & Shipping Info</h3>
+
+  <div class="row">
+    <div class="col md-7">
+      <p style="font-weight: bold">Billing details</p>
+      <div class="form-group">
+        <label for="firstname">Firstname:</label>
+        <input type="text" name="firstname" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="lastname">Lastname:</label>
+        <input type="text" name="lastname" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="streetaddress1">Address:</label>
+        <input type="text" name="streetaddress1" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" name="city" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <input type="text" name="country" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="postcode">Postcode:</label>
+        <input type="text" name="postcode" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" class="form-control" />
+      </div>
+      <br />
+      <div class="form-group">
+        <button type="submit" class="btn btn-warning">Continue</button>
+      </div>
+    </div>
+    <div class="col md-7">
+      <p style="font-weight: bold">Shipping details</p>
+      <input type="checkbox" name="shipaddress" />&nbsp;Shipping same as billing
+      address
+      <br />
+      <input
+        style="width: 400px"
+        type="text"
+        name="notes"
+        placeholder="Notes about your order, special delivery"
+      />
+      <br />
+      <br />
+      <p>Shipping Method</p>
+      <select name="shipmedthod">
+        <option value="">Choose Shipping Method</option>
+        <option value="eco">Standard Delivery (Free)</option>
+        <option value="1st">1st Class Delivery (£2.95)</option>
+        <option value="next">Next Day Delivery (£5.50)</option>
+      </select>
+    </div>
+  </div>
+</div>
